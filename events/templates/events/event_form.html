@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if event %}Edit{% else %}Create{% endif %} Event</title>
+</head>
+<body>
+    <h1>{% if event %}Edit{% else %}Create{% endif %} Event</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if event %}Save{% else %}Create{% endif %}</button>
+    </form>
+    <a href="{% url 'event-list' %}">Back to list</a>
+</body>
+</html>
